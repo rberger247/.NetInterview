@@ -1,0 +1,44 @@
+Event Handlers
+
+
+public class VideoEventArgs : EventArgs
+{
+ public Video video {get; set}
+}
+public void main (string[] args){
+      
+      var videoEncoder = new videoEncoder()
+      var video = new Video(){title: 'Title 1'}
+      videoEncoder.videoEncoded += messageService.onVideoEnded;
+
+
+}
+
+This is old way 
+//public delegate VideoEncodedEventHandler (object source, VideoEventArgs e);
+//public event videoEncoded;
+
+public eventHandler<VideoEventArgs> videoEncoded
+
+public void Encode(){
+
+encodeVideo(){
+    onVideoEncoded(Video)
+   }
+//This is convention
+protected virtual void onVideoEncoded(Video video){
+
+//Raise Event
+//if there are subscribers
+if(videoEncoded != null)
+     videoEncoded(this, new VideoEventArgs(){video = video})
+}
+
+public class MessageService(){
+
+
+public void onVideoEncoded(object source, VideoEventArgs e){
+console.write('sending message')
+}
+
+}
